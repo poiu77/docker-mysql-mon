@@ -13,7 +13,6 @@ RUN mkdir -p /var/lib/mysql/data \
 RUN mkdir /docker-entrypoint-initdb.d
 
 COPY docker-entrypoint.sh /entrypoint.sh
-COPY epk.sql /docker-entrypoint-initdb.d/epk.sql
 EXPOSE 3306
 
 VOLUME ["/var/lib/mysql/data"]
