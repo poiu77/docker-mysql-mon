@@ -17,7 +17,7 @@ EXPOSE 3306
 
 VOLUME ["/var/lib/mysql/data"]
 
-USER 27
+USER root
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["mysqld", "--datadir=/var/lib/mysql/data"]
