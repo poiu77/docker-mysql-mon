@@ -13,9 +13,16 @@ RUN mkdir -p /var/lib/mysql/data \
 RUN mkdir /docker-entrypoint-initdb.d
 
 COPY docker-entrypoint.sh /entrypoint.sh
+
+RUN chown -R mysql:mysql /entrypoint.sh \
+    && chmod -R 777 /entrypoint.sh \
+    && chmod +x /entrypoint.sh
+
 EXPOSE 3306
 
 VOLUME ["/var/lib/mysql/data"]
+
+USER mysql
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["mysqld", "--datadir=/var/lib/mysql/data"]
